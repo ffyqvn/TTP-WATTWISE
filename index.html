@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WattWise Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div><h1>Watt<span>Wise</span></h1><p class="sub" id="source">Campus energy monitoring, prediction and alerts</p></div>
+ <div class="tabs" id="tabs" role="group" aria-label="Filter by facility type"></div>
+</header>
+
+<section class="kpis" id="kpis"></section>
+
+<section class="grid">
+ <div class="card">
+  <h2>Actual vs predicted load today</h2>
+  <div class="legend"><span><i></i>Actual (kW)</span><span><i class="p"></i>Predicted (kW)</span><span><i class="a"></i>Abnormal period</span></div>
+  <div id="chart"></div>
+ </div>
+ <div class="card">
+  <h2>Alerts</h2>
+  <p class="sub" style="margin-bottom:10px">Rooms using more than predicted</p>
+  <ul class="al" id="alerts"></ul>
+ </div>
+</section>
+
+<section class="grid">
+ <div class="card scroll">
+  <h2>Rooms</h2>
+  <table><thead><tr><th>Room</th><th>Type</th><th>Occupancy</th><th>Now (kW)</th><th>Predicted (kW)</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table>
+ </div>
+ <div class="card">
+  <h2>Recommendations</h2>
+  <p class="sub" style="margin-bottom:10px">Suggested actions for facilities staff</p>
+  <ul class="al" id="recs"></ul>
+ </div>
+</section>
+</div>
+
+<!-- Load order matters: data first, then the app that draws it. -->
+<script src="today_data.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
